@@ -4,7 +4,7 @@
   "description": "Minimal and barebones example of a starter for deployment on Netlify",
   "previewMedia": {
     "type": "image",
-    "src": ".sanity-template/assets/netlify.png",
+    "src": "assets/netlify.png",
     "alt": "Netlify"
   },
   "technologies": [
@@ -14,7 +14,7 @@
       "url": "https://www.netlify.com/"
     }
   ],
-  "deployment": {
+"deployment": {
     "provider": "netlify",
     "sites": [
       {
@@ -22,10 +22,10 @@
         "type": "studio",
         "title": "Sanity Studio",
         "description": "The Sanity Studio is where you edit and structure your content.",
-        "dir": "../studio",
+        "dir": "./studio",
         "previewMedia": {
           "type": "image",
-          "src": ".sanity-template/assets/studio.jpg",
+          "src": "assets/studio.jpg",
           "alt": "A preview image of the Sanity Studio."
         },
         "buildSettings": {
@@ -33,30 +33,27 @@
           "dir": "dist",
           "cmd": "npm run build && cp netlify.toml dist"
         },
-        "requirements": [
-          "build-hook"
-        ]
+        "requirements": ["build-hook"]
       },
       {
         "id": "web",
         "type": "web",
         "title": "Blog Website",
-        "requirements": [
-          "build-hook"
-        ],
         "description": "A minimal example of a frontend fetching data from Sanity.io.",
-        "dir": "../web",
+        "dir": "./web",
+        "previewMedia": {
+          "type": "image",
+          "src": "assets/frontend.png",
+          "alt": "A preview image of the webpage."
+        },
         "buildSettings": {
           "base": "web",
           "dir": "public",
           "cmd": "cp index.html public/index.html"
         },
-        "previewMedia": {
-          "type": "image",
-          "src": ".sanity-template/assets/frontend.png",
-          "alt": "A preview image of the webpage."
-        }
+        "requirements": ["build-hook"],
       }
     ]
   }
+  
 }
